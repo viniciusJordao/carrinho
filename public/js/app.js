@@ -47,6 +47,11 @@
 		}
 		this.subTotal = total;
 		
+	};
+	
+	this.offCart = function(){
+		var elemento = angular.element( document.querySelector( '#produto' ) );
+		elemento.addClass('opaco');
 	}
  });
 

@@ -1,78 +1,22 @@
 <!doctype html>
 <html ng-app="store" lang='en'>
-<meta charset="utf-8">
 	<head>
-		<link rell="stylesheet" type="text/css" href="css/style.css">
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/styles.css">
 	</head>
-	<style>
-		*{text-decoration:none; list-style:none; margin:0; padding:0;}
-		
-		#cart{
-			background:#202025;
-			height:100%;			
-			position:absolute;
-			right:0px;
-			display:block;
-			color:#FFF;
-		}
-		
-		#cart ul li{
-		width:100%;
-		
-		}
-		
-			#cart ul li div{
-			display:inline-block;
-			}
-			
-			
-			#cart .price{
-				float:right;
-			}
-
-				#cart .price span{
-					width:100%;
-					display:inline-block;
-					text-align:right;
-				}
-				
-				
-				#cart .image img
-				{
-					width:50px;
-					height:50px;
-				}
-		
-		
-		.products li
-		{
-			width:31%;
-			display:inline-block;
-			margin-left:15px;
-			overflow:hidden;
-		}
-		
-		.products li div{
-			margin:0 auto;
-			width:300px;
-			text-align:center;		
-		}
-		
-		.products li .photo
-		{
-			width:180px;
-			height:230px;
-			margin: 15px auto;
-		}
-	</style>
 	<body ng-controller="StoreController as store">
 	<div class="container" ng-controller="CartController as miniCart">
 		<div id="cart" ng-show="miniCart.productsCart.length">
 			<div class="title">
-				<p>##sacola</p>
+				<span class="ico">
+					<span>
+					{{miniCart.productsCart.length}}
+					</span>
+				</span>
+				<span><p>sacola</p></span>
 			</div>
 			<ul class="product-list">
-				<li class="product" ng-repeat="list in miniCart.productsCart track by $index" >
+				<li id="produto" class="product" ng-repeat="list in miniCart.productsCart track by $index" >
 					<div class="image">
 					<img src="{{list.img[1]}}" />
 					</div>
@@ -82,14 +26,14 @@
 						<p>Quantidade: </p>
 					</div>
 					<div class="price">
-					 <span ng-click="miniCart.removeCart(list)" > X </span>
-					 <span>{{list.price}}</span>
+					 <span class="close" ng-click="miniCart.removeCart(list)" ng-mouseenter="miniCart.offCart()"  ng-mouseleave="miniCart.onCart()"> X </span>
+					 <span>{{list.price | currency:'R$':2}}</span>
 					</div>
 				</li>
 			</ul>
 					
 			<div class="total">
-				<p>{{miniCart.subTotal}}</p>
+				<p>{{miniCart.subTotal | currency:'R$':2}}</p>
 			</div>
 			<div class="comprar"></div>
 		</div>
@@ -103,7 +47,7 @@
 					<p>{{productList.name}}</p>
 				</div>
 				<div class="price">
-				{{productList.price}}
+				{{productList.price | currency:'R$':2}}
 				</div>
 			</li>
 		</ul>
