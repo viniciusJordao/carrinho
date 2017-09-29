@@ -1,0 +1,16 @@
+<ul class="product-list">
+	<li id="produto" class="product" ng-repeat="list in miniCart.productsCart track by $index" >
+		<div class="image">
+		<img src="{{list.img[1]}}" />
+		</div>
+		<div class="name">
+			<p>{{list.name}}</p>
+			<p>GGG | preto e branco</p>
+			<p>Quantidade: </p>
+		</div>
+		<div class="price">
+		 <span class="close" ng-click="miniCart.removeCart(list)" ng-mouseenter="miniCart.offCart()"  ng-mouseleave="miniCart.onCart()"> X </span>
+		 <span>{{list.price | currency:'R$':2}}</span>
+		</div>
+	</li>
+</ul>

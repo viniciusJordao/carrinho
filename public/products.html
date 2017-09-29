@@ -1,0 +1,13 @@
+<ul class="products">
+	<li ng-repeat="productList in store.products" ng-click="miniCart.cart(productList)">
+		<div class="photo">
+			<img src="{{productList.img[0]}}"/>
+		</div>
+		<div class="name">
+			<p>{{productList.name}}</p>
+		</div>
+		<div class="price">
+		{{productList.price | currency:'R$':2}}
+		</div>
+	</li>
+</ul>
