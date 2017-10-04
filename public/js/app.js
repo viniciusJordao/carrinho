@@ -37,8 +37,6 @@
 			var obj = vai.id;
 			var price = cartList[x].price;
 			
-			//console.log(obj);
-			
 			if(obj === cartList[x].id){
 				cartList.splice(x, 1);
 				total = total + cartList[x].price;
@@ -55,7 +53,27 @@
 	}
  });
 
-  
+app.directive("productList", function() {
+	return {
+	  restrict: 'E',
+	  templateUrl: "product-list.html"
+	};
+});
+
+app.directive("products", function() {
+	return {
+	  restrict: 'E',
+	  templateUrl: "products.html"
+	};
+});
+
+app.directive("cartTitle", function() {
+	return {
+	  restrict: 'E',
+	  templateUrl: "cart-title.html"
+	};
+});
+
 var productsList = [{
 		id:01,
 		name:"Camiseta Corinthians Réplica Sócrates",

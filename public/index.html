@@ -7,50 +7,18 @@
 	<body ng-controller="StoreController as store">
 	<div class="container" ng-controller="CartController as miniCart">
 		<div id="cart" ng-show="miniCart.productsCart.length">
-			<div class="title">
-				<span class="ico">
-					<span>
-					{{miniCart.productsCart.length}}
-					</span>
-				</span>
-				<span><p>sacola</p></span>
-			</div>
-			<ul class="product-list">
-				<li id="produto" class="product" ng-repeat="list in miniCart.productsCart track by $index" >
-					<div class="image">
-					<img src="{{list.img[1]}}" />
-					</div>
-					<div class="name">
-						<p>{{list.name}}</p>
-						<p>GGG | preto e branco</p>
-						<p>Quantidade: </p>
-					</div>
-					<div class="price">
-					 <span class="close" ng-click="miniCart.removeCart(list)" ng-mouseenter="miniCart.offCart()"  ng-mouseleave="miniCart.onCart()"> X </span>
-					 <span>{{list.price | currency:'R$':2}}</span>
-					</div>
-				</li>
-			</ul>
+			<cart-title>
+			</cart-title>
+			<product-list>
+			</product-list>
 					
 			<div class="total">
 				<p>{{miniCart.subTotal | currency:'R$':2}}</p>
 			</div>
 			<div class="comprar"></div>
 		</div>
-		
-		<ul class="products">
-			<li ng-repeat="productList in store.products" ng-click="miniCart.cart(productList)">
-				<div class="photo">
-					<img src="{{productList.img[0]}}"/>
-				</div>
-				<div class="name">
-					<p>{{productList.name}}</p>
-				</div>
-				<div class="price">
-				{{productList.price | currency:'R$':2}}
-				</div>
-			</li>
-		</ul>
+		<products>
+		</products>
 	</div>
 	
 		<script type="text/javascript" src="js/angular.min.js"></script>
